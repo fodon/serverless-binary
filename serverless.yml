@@ -1,0 +1,27 @@
+
+service: sls-binary # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+
+functions:
+  hello:
+    handler: handler.hello
+    description: Can we display a PDF?
+    events:
+      - http:
+          path: hello
+          method: get
+          contentHandling: CONVERT_TO_BINARY
+
+plugins:
+  - serverless-apigw-binary
+  - serverless-apigwy-binary
+
+custom:
+  apigwBinary:
+    types:
+      - 'application/pdf'
