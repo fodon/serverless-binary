@@ -13,7 +13,7 @@ functions:
     description: Can we display a PDF?
     events:
       - http:
-          path: hello
+          path: hello.pdf
           method: get
           contentHandling: CONVERT_TO_BINARY
 
